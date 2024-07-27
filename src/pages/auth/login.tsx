@@ -1,12 +1,23 @@
-import { useState } from "react";
-import './login.scss'
+import { FormEvent, useState } from "react";
+import "./login.scss";
+import { signInData } from "../../apiCalls";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const dispatch = useDispatch();
+
+  const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     console.log(email, password);
+
+    try {
+      signInData({ email, password }, dispatch);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -24,7 +35,7 @@ const Login = () => {
       </div>
       <div className="LoginContainer">
         <div className="containerL">
-          <form className="loginForm">
+          <form onSubmit={handleLogin} className="loginForm">
             <h2>Login</h2>
             <div className="formGroup">
               <label>Email</label>
@@ -53,31 +64,12 @@ const Login = () => {
               />
             </div>
             <div className="lbtn-div">
-              <button
-                type="submit"
-                className="loginButton"
-                onClick={() => handleLogin}
-              >
+              <button type="submit" className="loginButton">
                 Login
               </button>
             </div>
           </form>
         </div>
-
-        {/* <div className="lInfo">
-          {loginCarrdData.map((data, index) => (
-            <div className="lCard" key={index}>
-              <div className="limg-div">
-                <img src={data.image} alt={data.name} />
-              </div>
-              <div className="lc-contents">
-                <i>"{data.quote}"</i>
-                <h3>{data.name}</h3>
-                <p>{data.designation}</p>
-              </div>
-            </div>
-          ))}
-        </div> */}
       </div>
     </div>
   );

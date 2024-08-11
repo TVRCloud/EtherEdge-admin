@@ -21,14 +21,14 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
-//   useEffect(() => {
-//     if (!profileData) {
-//       window.location.reload();
-//     }
-//   }, [profileData]);
+  //   useEffect(() => {
+  //     if (!profileData) {
+  //       window.location.reload();
+  //     }
+  //   }, [profileData]);
 
-  console.log('profileData', profileData);
-  
+  console.log("profileData", profileData);
+
   return (
     <Menu>
       <MenuButton
@@ -36,9 +36,10 @@ const Profile = () => {
         aria-label="Profile"
         className="profile-button"
         title="Profile"
-        width={'100px'}
+        width={"100px"}
       >
-        <img src={profileData?.image || "/profile/user.png"} alt="" />
+        {/* <img src={profileData?.image || "/profile/user.png"} alt="user profile" /> */}
+        <img src="/profile/user.png" alt="user profile" />
       </MenuButton>
       <MenuList className="profile-list">
         <MenuItem className="greeting-btn">👋 Hey User</MenuItem>

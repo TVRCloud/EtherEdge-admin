@@ -5,7 +5,7 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../../redux/userRedux";
 
-const Profile = () => {
+const ProfileDropdown = () => {
   const [profileData, setProfileData] = useState();
   const dispatch = useDispatch();
 
@@ -58,4 +58,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileDropdown;

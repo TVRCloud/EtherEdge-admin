@@ -3,6 +3,7 @@ import { logoutUser } from "./redux/userRedux";
 import Landing from "./pages/landing/landing";
 import App from "./App";
 import Login from "./pages/auth/login";
+import { useEffect } from "react";
 
 interface User {
   userInfo: User[];
@@ -17,6 +18,24 @@ const Verify = () => {
   );
   const token = reduxData?.accessToken;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const validateToken = () => {
+      if (token) {
+        // Decode the token to get expiration time (assuming it contains an 'exp' claim)
+        const decodedToken = atob(token.split(".")[1]);
+        const { exp } = JSON.parse(decodedToken);
+
+        // Check if the token is expired
+        if (exp && exp * 1000 < Date.now()) {
+          // Token is expired, logout the user
+          dispatch(logoutUser());
+        }
+      }
+    };
+
+    validateToken();
+  }, [token, dispatch]);
 
   let content;
   if (reduxData) {

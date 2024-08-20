@@ -2,8 +2,11 @@ import { IoCloudDoneOutline } from "react-icons/io5";
 import ProfileDisplay from "./components/profileDisplay";
 import "./profile.scss";
 import StorageBar from "./components/storageBar";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="Profile">
       <div className="ProfileTopContainer">
@@ -30,7 +33,14 @@ const Profile = () => {
             to plan, coordinate and discuss
           </p>
           <div className="poiBtn">
-            <button title="Complete Profile">Complete Profile</button>
+            <button
+              onClick={() => {
+                navigate("/editProfile");
+              }}
+              title="Complete Profile"
+            >
+              Complete Profile
+            </button>
           </div>
         </div>
       </div>

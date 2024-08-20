@@ -1,12 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { viewProfileData } from "../../../apiCalls";
-import { Tooltip } from "@chakra-ui/react";
-import Popup from "../../../assets/popup/popup";
 
 const ProfileDisplay = () => {
-  const [editProfilePopup, setEditProfilePopup] = useState(false);
-
   const { data: profileData } = useQuery({
     queryKey: ["profileData"],
     queryFn: async () => {
@@ -15,46 +10,21 @@ const ProfileDisplay = () => {
     },
   });
 
-  console.log(profileData);
-
   return (
     <div className="profileDisplay">
       <div className="pd-Top">
         <img src="/profile/profileBanner.png" alt="" />
-        <Tooltip
-          label="Edit Profile"
-          aria-label="Edit Profile"
-          placement="right-end"
-          color={"#abb4cb"}
-        >
-          <div
-            className="profileIcon"
-            onClick={() => setEditProfilePopup(true)}
-          >
-            <img src={profileData?.image || "/profile/user.png"} alt="" />
-          </div>
-        </Tooltip>
+        <div className="profileIcon">
+          <img src={profileData?.image || "/profile/user.png"} alt="" />
+        </div>
       </div>
       <div className="pd-bottom">
-        <div className="pdb-name" onClick={() => setEditProfilePopup(true)}>
-          <Tooltip
-            label="Edit Profile"
-            aria-label="Edit Profile"
-            placement="right"
-            color={"#abb4cb"}
-          >
-            <h3>
-              {profileData?.firstName} {profileData?.lastName}
-            </h3>
-          </Tooltip>
-          <Tooltip
-            label="Edit Profile"
-            aria-label="Edit Profile"
-            placement="right"
-            color={"#abb4cb"}
-          >
-            <h4>@{profileData?.username}</h4>
-          </Tooltip>
+        <div className="pdb-name">
+          <h3>
+            {profileData?.firstName} {profileData?.lastName}
+          </h3>
+
+          <h4>@{profileData?.username}</h4>
         </div>
         <div className="pdb-status">
           <div className="pbms pdbs-posts">
@@ -71,9 +41,6 @@ const ProfileDisplay = () => {
           </div>
         </div>
       </div>
-      <Popup trigger={editProfilePopup} setTrigger={setEditProfilePopup}>
-        {/* <ProfilePopup profileData={profileData} /> */}
-      </Popup>
     </div>
   );
 };

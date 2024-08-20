@@ -157,6 +157,11 @@
         padding: 20px;
         height: 100vh;
         overflow-y: scroll;
+
+        .header {
+            width: 100%;
+            background: green;
+        }
     }
 
 
@@ -192,7 +197,7 @@
             border: none;
             background: transparent;
             color: var(--text2);
-            font-size: 26px;
+            font-size: 22px;
             cursor: pointer
         }
     }

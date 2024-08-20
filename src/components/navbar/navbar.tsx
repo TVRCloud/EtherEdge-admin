@@ -30,7 +30,11 @@ const Navbar = () => {
           <BreadcrumbLink
             as={Link}
             to={to}
-            style={{ textDecoration: "none", color: "#abb4cb" }}
+            style={{
+              textDecoration: "none",
+              color: "#abb4cb",
+              fontSize: "12px",
+            }}
           >
             {value.charAt(0).toUpperCase() + value.slice(1)}
           </BreadcrumbLink>
@@ -56,19 +60,23 @@ const Navbar = () => {
             <BreadcrumbLink
               as={Link}
               to="/"
-              style={{ textDecoration: "none", color: "#abb4cb" }}
+              style={{
+                textDecoration: "none",
+                color: "#abb4cb",
+                fontSize: "12px",
+              }}
             >
               Home
             </BreadcrumbLink>
           </BreadcrumbItem>
           {generateBreadcrumbs()}
         </Breadcrumb>
-        <Heading as="h2" size="lg" mt={2} color="#000">
+        <Heading as="h2" size="md" mt={1} color="#000">
           {getPageTitle()}
         </Heading>
       </div>
       <div className="quick-menu">
-        <Flex alignItems="center" gap={2}>
+        <Flex alignItems="center" gap={0}>
           <Search onSearch={handleSearch} />
           <Dropdown notifications={notifications} />
           <MobileSidebar />

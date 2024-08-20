@@ -35,7 +35,7 @@ const Profile = () => {
           <div className="poiBtn">
             <button
               onClick={() => {
-                navigate("/editProfile");
+                navigate("/profile/editProfile");
               }}
               title="Complete Profile"
             >

@@ -242,3 +242,31 @@
         }
     }
 }
+
+.EditProfile {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+
+    .FormMinContainer {
+        background: var(--primary-bg);
+        padding: 10px 15px;
+        border-radius: 8px;
+
+        h3{
+            font-size: large;
+            font-weight: 500;
+        }
+
+        p{
+            color: var(--text2);
+            font-size: small;
+        }
+
+        .EditFormContainer{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    }
+}

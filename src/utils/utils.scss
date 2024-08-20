@@ -1,0 +1,68 @@
+.InputField {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+        font-weight: bold;
+        padding: 0 10px;
+    }
+
+    .inputContainer {
+        border: 1px solid #ccc;
+        padding: 5px;
+        border-radius: 14px;
+
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: inherit;
+            padding: 4px 10px;
+            font-size: 14px;
+        }
+    }
+}
+
+.TextArea {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+        font-weight: bold;
+        padding: 0 10px;
+    }
+
+    .textAreaContainer {
+        border: 1px solid #ccc;
+        padding: 5px;
+        border-radius: 14px;
+
+        textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: inherit;
+            padding: 4px 10px;
+            font-size: 14px;
+        }
+    }
+
+}
+
+.FormButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    padding: 10px;
+    color: white;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+
+    &:hover {
+        background: var(--primary-color-dark);
+
+    }
+}

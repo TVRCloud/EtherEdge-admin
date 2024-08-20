@@ -18,9 +18,9 @@ const Contents = () => {
         </div>
       </div>
 
-      {/* <div className="sidebar-bottom">
+      <div className="sidebar-bottom">
         <SidebarDocs />
-      </div> */}
+      </div>
     </div>
   );
 };

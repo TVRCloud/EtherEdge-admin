@@ -18,7 +18,6 @@ const EditProfile = () => {
   const {
     data: profileData,
     isLoading,
-    error,
     refetch: refetchProfileData,
   } = useQuery({
     queryKey: ["profileData"],
@@ -71,7 +70,7 @@ const EditProfile = () => {
   };
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching profile data</p>;
+  // if (error) return <p>Error fetching profile data</p>;
 
   return (
     <div className="flex gap-5">

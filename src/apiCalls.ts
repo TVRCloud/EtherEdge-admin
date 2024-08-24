@@ -5,10 +5,7 @@ import { publicRequest, userRequest } from "./requestMethods";
 const storedData = localStorage.getItem("persist:alpha96");
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
 const userId = user?.userInfo?.[0]?.id;
-const userType = user?.userInfo?.[0]?.type;
-
-console.log(userId, userType);
-
+// const userType = user?.userInfo?.[0]?.type;
 
 // signup
 export const signUpData = async (data: { email: string; password: string }) => {
@@ -43,7 +40,6 @@ export const viewProfileData = async () => {
   try {
     const res = await userRequest.get(`/Viewprofile/${userId}`);
     console.log("Response Status:", res.status);
-    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -53,17 +49,15 @@ export const viewProfileData = async () => {
 // edit profile
 export const editProfile = async (data: {
   username: string;
-  dob: string;
-  phone: string;
   firstName: string;
   lastName: string;
-  image: string;
-  about: string;
+  description?: string | undefined;
 }) => {
-  console.log(data);
+  console.log("apiii data", data);
   try {
     const res = await userRequest.put(`/editprofile/${userId}`, data);
     console.log("Response Status:", res.status);
+    return res.data;
   } catch (error) {
     console.log(error);
   }

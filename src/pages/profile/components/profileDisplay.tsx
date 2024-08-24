@@ -1,15 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
-import { viewProfileData } from "../../../apiCalls";
+type profileType = {
+  profileData: {
+    username: string;
+    firstName: string;
+    lastName: string;
+    image: string;
+    description: string;
+  };
+};
 
-const ProfileDisplay = () => {
-  const { data: profileData } = useQuery({
-    queryKey: ["profileData"],
-    queryFn: async () => {
-      const apiData = await viewProfileData();
-      return apiData;
-    },
-  });
-
+const ProfileDisplay = ({ profileData }: profileType) => {
   return (
     <div className="profileDisplay">
       <div className="pd-Top">

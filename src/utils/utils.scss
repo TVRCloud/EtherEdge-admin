@@ -1,68 +1,88 @@
-.InputField {
+/* Common button styles */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    label {
-        font-weight: bold;
-        padding: 0 10px;
-    }
-
-    .inputContainer {
-        border: 1px solid #ccc;
-        padding: 5px;
-        border-radius: 14px;
-
-        input {
-            width: 100%;
-            border: none;
-            outline: none;
-            background: inherit;
-            padding: 4px 10px;
-            font-size: 14px;
-        }
-    }
-}
-
-.TextArea {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    label {
-        font-weight: bold;
-        padding: 0 10px;
-    }
-
-    .textAreaContainer {
-        border: 1px solid #ccc;
-        padding: 5px;
-        border-radius: 14px;
-
-        textarea {
-            width: 100%;
-            border: none;
-            outline: none;
-            background: inherit;
-            padding: 4px 10px;
-            font-size: 14px;
-        }
-    }
-
-}
-
-.FormButton {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    background: var(--primary-color);
-    padding: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
     color: white;
-    transition: all 0.3s ease;
-    border-radius: 8px;
+}
 
-    &:hover {
-        background: var(--primary-color-dark);
+.btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
 
+.btn.danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn.default,
+.btn.responsive {
+    font-size: 14px;
+    padding: 10px 16px;
+}
+
+.btn.responsive {
+    width: 100%;
+}
+
+.btn.loading {
+    cursor: not-allowed;
+}
+
+/* Spinner container */
+.btn-loading {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+/* Spinner animation */
+.btn-loading::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    box-sizing: border-box;
+}
+
+/* Spinner keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Optional: Button hover and active states */
+.btn:not(:disabled):hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:not(:disabled):active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

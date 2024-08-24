@@ -1,33 +1,10 @@
-import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { viewProfileData } from "../../../apiCalls";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../../redux/userRedux";
 
 const ProfileDropdown = () => {
-  const [profileData, setProfileData] = useState();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    async function fetchProfile() {
-      try {
-        const apiData = await viewProfileData();
-        setProfileData(apiData);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchProfile();
-  }, []);
-
-  //   useEffect(() => {
-  //     if (!profileData) {
-  //       window.location.reload();
-  //     }
-  //   }, [profileData]);
-
-  console.log("profileData", profileData);
 
   return (
     <Menu>

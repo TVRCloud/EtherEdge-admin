@@ -1,61 +1,35 @@
-import React, { useState, FormEvent } from "react";
-import { ZodSchema, ZodError } from "zod";
-import { Button } from "./formItems"; // Adjust import path as needed
+// components/Form.tsx
+import { ReactNode } from "react";
+import {
+  useForm,
+  FormProvider,
+  SubmitHandler,
+  FieldValues,
+} from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ZodSchema } from "zod";
 
-type FormProps<T> = {
-  schema: ZodSchema<T>;
-  initialValues: T;
-  onSubmit: (values: T) => void;
-  children: (props: {
-    values: T;
-    errors: Record<string, string>;
-    onChange: (
-      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => void;
-  }) => React.ReactNode;
-};
+interface FormProps<TFormValues extends FieldValues> {
+  onSubmit: SubmitHandler<TFormValues>;
+  schema?: ZodSchema<TFormValues>;
+  children: ReactNode;
+}
 
-export const Form = <T,>({
-  schema,
-  initialValues,
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Form = <TFormValues extends Record<string, any>>({
   onSubmit,
+  schema,
   children,
-}: FormProps<T>) => {
-  const [values, setValues] = useState(initialValues);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    try {
-      schema.parse(values);
-      setErrors({});
-      onSubmit(values);
-    } catch (error) {
-      if (error instanceof ZodError) {
-        const errorMessages = error.errors.reduce<Record<string, string>>(
-          (acc, err) => {
-            acc[err.path[0]] = err.message;
-            return acc;
-          },
-          {}
-        );
-        setErrors(errorMessages);
-      }
-    }
-  };
+}: FormProps<TFormValues>) => {
+  const methods = useForm<TFormValues>({
+    resolver: schema ? zodResolver(schema) : undefined,
+  });
 
   return (
-    <form onSubmit={handleSubmit}>
-      {children({ values, errors, onChange: handleChange })}
-      <Button label="Submit" type="submit" />
-    </form>
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+    </FormProvider>
   );
 };
+
+export default Form;

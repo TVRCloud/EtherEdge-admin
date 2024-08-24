@@ -1,106 +1,160 @@
-import "./utils.scss";
+import React from "react";
+import { useFormContext } from "react-hook-form";
+import "./utils.scss"; // Import your SCSS styles
 
-type FieldsetProps = {
-  legend: string;
-  children: React.ReactNode;
-};
-
-export const Fieldset = ({ legend, children }: FieldsetProps) => (
-  <fieldset className="Fieldset">
-    <legend>{legend}</legend>
-    {children}
-  </fieldset>
-);
-
-type InputItemProps = {
-  label: string;
+// Input component
+interface InputProps {
   name: string;
-  placeholder: string;
+  label: string;
   type?: string;
-  value?: string | number;
-  onChange?: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-};
+  defaultValue?: string;
+  disabled?: boolean;
+}
 
-export const InputField = ({
+export const Input: React.FC<InputProps> = ({
+  name,
   label,
-  placeholder,
   type = "text",
-  value,
-  name,
-  onChange,
-}: InputItemProps) => {
+  defaultValue,
+  disabled = false,
+}) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
-    <div className="InputField">
-      <label>{label}</label>
-      <div className="inputContainer">
+    <div className="flex flex-col mb-3 gap-2">
+      <label className="text-sm text-[#1b254b] font-[500] pl-3">{label}</label>
+      <div className=" border-2 rounded-[14px]">
         <input
+          className="w-full outline-none bg-inherit rounded-[14px] p-2 pl-3"
+          {...register(name, { value: defaultValue })}
           type={type}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
+          disabled={disabled}
         />
       </div>
+      {errors[name] && (
+        <p className="text-red-500 text-xs pl-3 mt-1">
+          {errors[name]?.message?.toString()}
+        </p>
+      )}
     </div>
   );
 };
 
-type TextAreaProps = {
-  label: string;
-  placeholder: string;
-  type?: string;
-  value?: string | number;
+// Select component
+interface SelectProps {
   name: string;
-  onChange?: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-};
+  label: string;
+  options: { label: string; value: string | number }[];
+  defaultValue?: string | number;
+}
 
-export const TextArea = ({
-  label,
-  placeholder,
-  value,
+export const Select: React.FC<SelectProps> = ({
   name,
-  onChange,
-}: TextAreaProps) => {
+  label,
+  options,
+  defaultValue,
+}) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
-    <div className="TextArea">
-      <label>{label}</label>
-      <div className="textAreaContainer">
-        <textarea
-          placeholder={placeholder}
-          value={value}
-          name={name}
-          onChange={onChange}
-        />
+    <div className="flex flex-col mb-2">
+      <label className="text-sm text-[#1b254b] font-[500] pl-3">{label}</label>
+      <div className="p-2 border-2 rounded-[14px]">
+        <select
+          className="w-full outline-none bg-inherit pl-1"
+          {...register(name, { value: defaultValue })}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
+      {errors[name] && (
+        <p className="text-red-500 text-xs pl-3">
+          {errors[name]?.message?.toString()}
+        </p>
+      )}
     </div>
   );
 };
 
-type ButtonProps = {
+// TextArea component
+interface TextAreaProps {
+  name: string;
+  label: string;
+  rows?: number;
+  defaultValue?: string;
+}
+
+export const TextArea: React.FC<TextAreaProps> = ({
+  name,
+  label,
+  rows = 3,
+  defaultValue,
+}) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  return (
+    <div className="flex flex-col mb-3 gap-2">
+      <label className="text-sm text-[#1b254b] font-[500] pl-3">{label}</label>
+      <div className="p-2 border-2 rounded-[14px]">
+        <textarea
+          className="w-full outline-none bg-inherit pl-1"
+          rows={rows}
+          {...register(name, { value: defaultValue })}
+        ></textarea>
+      </div>
+      {errors[name] && (
+        <p className="text-red-500 text-xs pl-3">
+          {errors[name]?.message?.toString()}
+        </p>
+      )}
+    </div>
+  );
+};
+
+interface ButtonProps {
   label: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "danger";
+  size?: "responsive" | "default";
   disabled?: boolean;
-  className?: string;
-};
+  loading?: boolean; // New prop for loading state
+}
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
   type = "button",
+  variant = "primary",
+  size = "default",
   disabled = false,
-  className = "",
-}: ButtonProps) => (
-  <button
-    className={`FormButton ${className}`}
-    type={type}
-    onClick={onClick}
-    disabled={disabled}
-  >
-    {label}
-  </button>
-);
+  loading = false, // Default to false
+}) => {
+  return (
+    <button
+      type={type}
+      className={`btn ${variant} ${size} ${loading ? "loading" : ""}`} 
+      onClick={onClick}
+      disabled={disabled || loading}
+    >
+      {loading ? (
+        <span className="btn-loading">Loading...</span> // Display loading text or spinner
+      ) : (
+        label
+      )}
+    </button>
+  );
+};

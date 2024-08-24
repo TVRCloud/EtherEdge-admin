@@ -3,14 +3,24 @@ import ProfileDisplay from "./components/profileDisplay";
 import "./profile.scss";
 import StorageBar from "./components/storageBar";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { viewProfileData } from "../../apiCalls";
 
 const Profile = () => {
   const navigate = useNavigate();
 
+  const { data: profileData } = useQuery({
+    queryKey: ["profileData"],
+    queryFn: async () => {
+      const apiData = await viewProfileData();
+      return apiData;
+    },
+  });
+
   return (
     <div className="Profile">
       <div className="ProfileTopContainer">
-        <ProfileDisplay />
+        <ProfileDisplay profileData={profileData} />
         <div className="systemStorage">
           <div className="systemStorage-top">
             <div className="sysS-icon">

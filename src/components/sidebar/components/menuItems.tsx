@@ -36,8 +36,6 @@ const MenuItems: React.FC<MenuItemsProps> = ({ navData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const location = useLocation();
 
-  console.log(navData);
-
   useEffect(() => {
     const currentIndex = navData?.findIndex(
       (item) => item.url === location.pathname

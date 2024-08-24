@@ -11,6 +11,7 @@ import "./navbar.scss";
 import Dropdown from "./components/dropdown";
 import MobileSidebar from "../sidebar/components/mobileSidebar";
 import ProfileDropdown from "./components/profile";
+import SEO from "../../seo";
 
 const Navbar = () => {
   const location = useLocation();

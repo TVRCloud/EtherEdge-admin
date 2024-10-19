@@ -1,4 +1,4 @@
-import './landing.scss'
+import "./landing.scss";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/userRedux";
 
@@ -41,6 +41,18 @@ const Landing = () => {
           <img src="/landing/landingBg.png" alt="admin panel image" />
         </div>
       </section>
+
+      {/*   <div className="custom-shaped-div mt-4">
+          <video
+            autoPlay
+            preload="auto"
+            loop
+            playsInline
+            muted
+            className="w-full h-[200px] object-cover rounded-lg"
+            src="/landing/bgVideoHD.mp4"
+          ></video>
+        </div> */}
     </div>
   );
 };

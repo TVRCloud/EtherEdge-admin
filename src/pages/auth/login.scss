@@ -170,3 +170,21 @@
         }
     }
 }
+
+.custom-shaped-div {
+    width: 100%;
+    /* Scales based on the parent container */
+    height: 100%;
+    /* Adjusts height based on the content or parent */
+    background-color: white;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%221115%22%20height%3D%22622%22%20viewBox%3D%220%200%201115%20622%22%20fill%3D%22%23D9D9D9%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M0%2070C0%2031.3401%2031.3401%200%2070%200H609.5C638.495%200%20662%2023.5051%20662%2052.5V52.5C662%2081.4949%20685.505%20105%20714.5%20105H1045C1083.66%20105%201115%20136.34%201115%20175V552C1115%20590.66%201083.66%20622%201045%20622H506C476.729%20622%20453%20598.271%20453%20569V569C453%20539.729%20429.271%20516%20400%20516H70C31.3401%20516%200%20484.66%200%20446V70Z%22%20fill%3D%22%23D9D9D9%22/%3E%3C/svg%3E');
+    mask-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%221115%22%20height%3D%22622%22%20viewBox%3D%220%200%201115%20622%22%20fill%3D%22%23D9D9D9%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M0%2070C0%2031.3401%2031.3401%200%2070%200H609.5C638.495%200%20662%2023.5051%20662%2052.5V52.5C662%2081.4949%20685.505%20105%20714.5%20105H1045C1083.66%20105%201115%20136.34%201115%20175V552C1115%20590.66%201083.66%20622%201045%20622H506C476.729%20622%20453%20598.271%20453%20569V569C453%20539.729%20429.271%20516%20400%20516H70C31.3401%20516%200%20484.66%200%20446V70Z%22%20fill%3D%22%23D9D9D9%22/%3E%3C/svg%3E');
+    -webkit-mask-size: 100% 100%;
+    /* Ensures mask takes up the entire div */
+    mask-size: 100% 100%;
+    /* Ensures mask takes up the entire div */
+    -webkit-mask-repeat: no-repeat;
+    /* Prevents repeating of the mask */
+    mask-repeat: no-repeat;
+    /* Prevents repeating of the mask */
+}

@@ -1,25 +1,19 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/sidebar/sidebar";
-import Navbar from "../components/navbar/navbar";
-import Footer from "../components/footer/footer";
+import SideBar from "../components/Layout/sidebar/page";
 
 export default function Root() {
   return (
-    <div className="RootContainer">
-      <div className="Sidebar">
-        <Sidebar />
+    <div className="flex gap-2 min-h-screen">
+      <div className="w-[20%]">
+        <SideBar />
       </div>
-      <div className="MainBody">
-        <div className="header">
-          <Navbar />
-        </div>
+      <div>
+        <div> {/* <Navbar /> */}</div>
 
-        <div className="content">
+        <div>
           <Outlet />
         </div>
-        <div className="footer">
-          <Footer />
-        </div>
+        <div> {/* <Footer /> */}</div>
       </div>
     </div>
   );

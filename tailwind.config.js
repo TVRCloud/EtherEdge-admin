@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         // Light theme colors
-        "main-bg": "#f4f7fe",
+        "main-bg": "#f6f7fa",
         "primary-bg": "#fff",
         text: "#1b254b",
         text2: "#abb4cb",
@@ -16,8 +16,8 @@ export default {
         danger: "#ff0000",
 
         // Dark theme colors
-        "dark-main-bg": "#1a1c23",
-        "dark-primary-bg": "#2c2f3a",
+        "dark-main-bg": "#0b1437",
+        "dark-primary-bg": "#111c44",
         "dark-text": "#f0f4fc",
         "dark-text2": "#c2c8d1",
         "dark-primary-color": "#8a71fd",

@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.scss";
 import Root from "./root/root";
 import Dashboard from "./pages/Dashboard/page";
 import { useEffect } from "react";

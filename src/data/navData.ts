@@ -11,12 +11,28 @@ type IconNames =
 export const navData: {
   title: string;
   icon: IconNames;
-  url: string;
+  url?: string;
+  subItems?: {
+    title: string;
+    icon: IconNames;
+    url: string;
+  }[];
 }[] = [
   {
     title: "Dashboard",
     icon: "IoHome",
-    url: "/",
+    subItems: [
+      {
+        title: "Projects",
+        icon: "IoFolder",
+        url: "/projects",
+      },
+      {
+        title: "Portfolio",
+        icon: "IoImages",
+        url: "/portfolio",
+      },
+    ],
   },
   {
     title: "About Me",

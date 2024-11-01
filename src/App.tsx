@@ -11,7 +11,7 @@ function App() {
     ).matches;
     document.documentElement.classList.toggle("dark", userPrefersDark);
   }, []);
-  
+
   const router = createBrowserRouter([
     {
       element: <Root />,
@@ -28,6 +28,14 @@ function App() {
         //   path: "/profile/editProfile",
         //   element: <EditProfile />,
         // },
+        {
+          path: "/analytics/overview",
+          element: "<Dashboard />",
+        },
+        {
+          path: "/users/list",
+          element: "<jdkifjksdhfsho />",
+        },
       ],
     },
   ]);

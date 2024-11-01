@@ -1,0 +1,88 @@
+/* Common button styles */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn.danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn.default,
+.btn.responsive {
+    font-size: 14px;
+    padding: 10px 16px;
+}
+
+.btn.responsive {
+    width: 100%;
+}
+
+.btn.loading {
+    cursor: not-allowed;
+}
+
+/* Spinner container */
+.btn-loading {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+/* Spinner animation */
+.btn-loading::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    box-sizing: border-box;
+}
+
+/* Spinner keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Optional: Button hover and active states */
+.btn:not(:disabled):hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:not(:disabled):active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

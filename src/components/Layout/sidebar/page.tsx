@@ -5,7 +5,7 @@ import { Button } from "../../ui/button";
 
 const SideBar = () => {
   return (
-    <div className="p-4 h-full hidden xl:block">
+    <div className="p-4 h-full">
       <div className="bg-primary-bg dark:bg-dark-primary-bg flex flex-col justify-between h-full gap-2 px-6 py-4 rounded-[20px] min-h-[100%] max-h-[100%]">
         <div>
           <div className="flex justify-center py-9">

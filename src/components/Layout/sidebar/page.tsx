@@ -29,7 +29,7 @@ const SideBar = () => {
 
           {/* avatar */}
           <div className="flex gap-3 items-center ">
-            <div className="h-[60px] w-[60px] rounded-full overflow-hidden">
+            <div className="h-[45px] w-[45px] rounded-full overflow-hidden">
               <img
                 src="https://i.pravatar.cc/300"
                 alt="profile-avatar"

@@ -61,19 +61,26 @@ const NavNotifications = () => {
       <MenuTrigger asChild className="cursor-pointer">
         <IoNotificationsOutline className="text-text-secondary dark:text-dark-text-primary" />
       </MenuTrigger>
-      <MenuContent className="max-h-[300px] max-w-[360px] mt-6 overflow-y-auto hide-scrollbar rounded-[16px]">
+      <MenuContent className="max-h-[300px] max-w-[360px] mt-6 overflow-y-auto hide-scrollbar rounded-[16px] bg-white dark:bg-gradient-to-b from-dark-primary-bg to-dark-main-bg">
+        <div>
+          <h3 className="text-text-primary dark:text-dark-text-primary text-lg font-semibold p-3 pt-6 px-4">
+            Notifications
+          </h3>
+        </div>
         {notifications.map((notification, index) => (
           <MenuItem key={index} value={notification.title}>
             <div className="flex gap-3 p-3 min-w-[360px]">
-              <div className="w-[20%">
+              <div className="w-[20%]">
                 <div className="h-[45px] w-[45px] rounded-full overflow-hidden">
                   <img src={notification.image} alt={notification.title} />
                 </div>
               </div>
 
               <div className="w-[80%]">
-                <h3>{notification.title}</h3>
-                <p className="text-sm text-gray-600 overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
+                <h3 className="text-text-primary dark:text-dark-text-primary">
+                  {notification.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-dark-text-secondary overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                   {notification.content}
                 </p>
               </div>

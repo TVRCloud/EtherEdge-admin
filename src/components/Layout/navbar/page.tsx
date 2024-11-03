@@ -29,7 +29,7 @@ const Navbar = () => {
     console.log("Search:", value);
   };
   return (
-    <div className=" py-4 pr-4">
+    <div className="py-4 pl-4 lg:pl-0 lg:pr-4">
       <div className="nav-glass-effect p-3 pl-5 rounded-[14px] flex justify-between">
         <div className="flex flex-col gap-2 justify-center">
           <BreadcrumbRoot>

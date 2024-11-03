@@ -8,6 +8,7 @@ import {
   FiPieChart,
   FiChevronDown,
   FiChevronRight,
+  FiMail,
 } from "react-icons/fi";
 
 interface SidebarItem {
@@ -20,12 +21,27 @@ interface SidebarItem {
 const sidebarItems: SidebarItem[] = [
   { name: "Dashboard", icon: FiHome, path: "/" },
   {
-    name: "Analytics",
+    name: "About Me",
+    icon: FiSettings,
+    path: "/about",
+  },
+  {
+    name: "Skills",
     icon: FiPieChart,
-    path: "/analytics",
+    path: "/skills",
+  },
+  {
+    name: "Contact",
+    icon: FiMail,
+    path: "/contact",
+  },
+  {
+    name: "Portfolio",
+    icon: FiPieChart,
+    path: "/portfolio",
     subItems: [
-      { name: "Overview", icon: FiFolder, path: "/analytics/overview" },
-      { name: "Reports", icon: FiFolder, path: "/analytics/reports" },
+      { name: "Projects", icon: FiFolder, path: "/portfolio/projects" },
+      { name: "Resume", icon: FiFolder, path: "/portfolio/resume" },
     ],
   },
   {
@@ -37,7 +53,11 @@ const sidebarItems: SidebarItem[] = [
       { name: "Roles", icon: FiUsers, path: "/users/roles" },
     ],
   },
-  { name: "Settings", icon: FiSettings, path: "/settings" },
+  {
+    name: "Settings",
+    icon: FiPieChart,
+    path: "/settings",
+  },
 ];
 
 interface NestedSidebarItemProps {
@@ -81,9 +101,9 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col text-sm">
       <div
-        className={`flex items-center p-3 cursor-pointer rounded-[12px] transition-all duration-300 ease-in-out
+        className={`flex items-center p-3 cursor-pointer rounded-[12px]
           ${
             isActive
               ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"
@@ -102,7 +122,7 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
           <Link
             to={item.path}
             onClick={() => setActivePath(item.path)} // Update active path on click
-            className={`flex items-center w-full transition-all duration-300 ease-in-out
+            className={`flex items-center w-full
               ${
                 isActive
                   ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"
@@ -122,7 +142,7 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
               <Link
                 to={subItem.path}
                 onClick={() => setActivePath(subItem.path)} // Update active path on click
-                className={`flex items-center p-3 rounded-[12px] transition-all duration-300 ease-in-out w-full
+                className={`flex items-center p-3 rounded-[12px]  w-full
                   ${
                     activePath === subItem.path
                       ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"

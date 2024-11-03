@@ -4,6 +4,7 @@ import { Heading } from "@chakra-ui/react";
 import NavSearch from "./components/NavSearch";
 import NavNotifications from "./components/NavNotifications";
 import NavThemeToggler from "./components/NavThemeToggler";
+import NavProfile from "./components/NavProfile";
 
 const Navbar = () => {
   const location = useLocation();
@@ -29,7 +30,7 @@ const Navbar = () => {
   };
   return (
     <div className=" py-4 pr-4">
-      <div className="nav-glass-effect p-3 rounded-[14px] flex justify-between">
+      <div className="nav-glass-effect p-3 pl-5 rounded-[14px] flex justify-between">
         <div className="flex flex-col gap-2 justify-center">
           <BreadcrumbRoot>
             <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -44,6 +45,7 @@ const Navbar = () => {
           <NavSearch onSearch={handleSearch} />
           <NavNotifications />
           <NavThemeToggler />
+          <NavProfile />
         </div>
       </div>
     </div>

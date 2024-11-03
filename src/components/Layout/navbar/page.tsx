@@ -2,8 +2,8 @@ import { BreadcrumbLink, BreadcrumbRoot } from "../../ui/breadcrumb";
 import { useLocation } from "react-router-dom";
 import { Heading } from "@chakra-ui/react";
 import NavSearch from "./components/NavSearch";
-import NavThemeTogler from "./components/NavThemeTogler";
 import NavNotifications from "./components/NavNotifications";
+import NavThemeToggler from "./components/NavThemeToggler";
 
 const Navbar = () => {
   const location = useLocation();
@@ -42,8 +42,8 @@ const Navbar = () => {
 
         <div className="flex gap-3 items-center bg-primary-bg dark:bg-dark-primary-bg p-[8px] rounded-full">
           <NavSearch onSearch={handleSearch} />
-          <NavNotifications/>
-          <NavThemeTogler />
+          <NavNotifications />
+          <NavThemeToggler />
         </div>
       </div>
     </div>

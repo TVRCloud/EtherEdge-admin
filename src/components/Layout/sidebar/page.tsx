@@ -1,4 +1,3 @@
-import React from "react";
 import { GiAbstract111 } from "react-icons/gi";
 
 import NestedSidebar from "./components/Navigations";

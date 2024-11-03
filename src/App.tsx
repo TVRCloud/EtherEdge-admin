@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./root/root";
 import Dashboard from "./pages/Dashboard/page";
 import { useEffect } from "react";
+import "./App.css";
 
 function App() {
   useEffect(() => {

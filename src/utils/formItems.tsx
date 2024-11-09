@@ -1,6 +1,5 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import "./utils.scss"; // Import your SCSS styles
 
 // Input component
 interface InputProps {
@@ -146,7 +145,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`btn ${variant} ${size} ${loading ? "loading" : ""}`} 
+      className={`btn ${variant} ${size} ${loading ? "loading" : ""}`}
       onClick={onClick}
       disabled={disabled || loading}
     >

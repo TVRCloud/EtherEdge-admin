@@ -1,70 +1,46 @@
-import { FormEvent, useState } from "react";
-import "./login.scss"; // You can keep this for any additional styling
-import { signInData } from "../../apiCalls";
-import { useDispatch } from "react-redux";
-import BgAnimation from "../../assets/bgAnimation";
+import { Tabs } from "@chakra-ui/react";
+import LoginTable from "../../components/auth/loginTable";
+import SignUpTable from "../../components/auth/signUpTable";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-
-  const handleLogin = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(email, password);
-
-    try {
-      signInData({ email, password }, dispatch);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
-    <div className="min-h-screen relative bg-gradient-to-b from-indigo-500 to-blue-600 flex items-center justify-center">
-      <BgAnimation />
+    <div
+      className={`min-h-screen bg-[url('https://codingstella.com/wp-content/uploads/2024/01/download-5.jpeg')] bg-bottom bg-cover flex items-center justify-center `}
+    >
+      <div className="bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 p-8 rounded-lg shadow-xl w-full max-w-md">
+        <Tabs.Root fitted variant={"line"} defaultValue={"login"}>
+          <div className="mb-6 text-center">
+            <h2 className="text-white text-3xl font-semibold">Welcome</h2>
+            <p className="text-gray-300 text-sm">
+              Please sign in or create a new account.
+            </p>
+          </div>
 
-      <div className="bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 p-8 rounded-lg shadow-2xl w-full max-w-sm">
-        <h2 className="text-white text-3xl font-bold text-center mb-8">Login</h2>
-        <form onSubmit={handleLogin} className="space-y-6">
-          <div className="formGroup">
-            <label className="text-gray-300 text-sm font-medium">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 bg-transparent border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500 transition duration-200 hover:border-blue-500 placeholder-gray-400"
-            />
-          </div>
-          <div className="formGroup">
-            <label className="text-gray-300 text-sm font-medium">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full p-3 bg-transparent border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500 transition duration-200 hover:border-blue-500 placeholder-gray-400"
-            />
-          </div>
-          <div className="lbtn-div">
-            <button
-              type="submit"
-              className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 transform hover:scale-105"
+          <Tabs.List className="flex justify-center bg-inherit mb-5">
+            <Tabs.Trigger
+              value="login"
+              className="text-lg font-semibold text-white py-2 px-4 transition duration-200"
             >
               Login
-            </button>
-          </div>
-          <p className="text-center text-gray-300 text-sm">
-            Don't have an account? <a href="/signup" className="text-blue-400 hover:underline">Sign Up</a>
-          </p>
-        </form>
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              value="signup"
+              className="text-lg font-semibold text-white py-2 px-4 transition duration-200"
+            >
+              Sign Up
+            </Tabs.Trigger>
+          </Tabs.List>
+
+          <Tabs.Indicator />
+
+          <Tabs.Content value="login">
+            <LoginTable />
+          </Tabs.Content>
+
+          <Tabs.Content value="signup">
+            <SignUpTable />
+          </Tabs.Content>
+        </Tabs.Root>
       </div>
     </div>
   );

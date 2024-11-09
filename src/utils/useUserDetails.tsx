@@ -1,42 +1,32 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { viewProfileData } from "../apiCalls";
 
-interface User {
-  id: string;
-  name: string;
-  profileImage: string;
-  username: string;
-  gender: string;
-  email: string;
-  role: string;
-  isVerified: boolean;
+interface data {
+  user: {
+    _id: string;
+    fullName: string;
+    profileImage: string;
+    username: string;
+    gender: string;
+    email: string;
+    role: string;
+    isVerified: boolean;
+    dob: string;
+    type: string;
+    phone: string;
+    image: string;
+    lastLogin: string;
+    state: string;
+  };
 }
 
 const useUserDetails = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading, isError, error } = useQuery<data, Error>({
+    queryKey: ["user"],
+    queryFn: viewProfileData,
+  });
 
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch("/api/user");
-        if (!response.ok) {
-          throw new Error("Failed to fetch user details");
-        }
-        const data = await response.json();
-        setUser(data);
-      } catch (err) {
-        setError((err as Error).message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserDetails();
-  }, []);
-
-  return { user, loading, error };
+  return { data, isLoading, error: isError ? error?.message : null };
 };
 
 export default useUserDetails;

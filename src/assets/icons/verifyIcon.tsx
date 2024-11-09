@@ -1,14 +1,18 @@
-const VerifyIcon = () => {
+type Props = {
+  height?: string;
+  width?: string;
+};
+const VerifyIcon = ({ height = "24px", width = "24px" }: Props) => {
   return (
     <svg
-      stroke="currentColor"
-      fill="currentColor"
-      stroke-width="0"
+      stroke="#3965ff"
+      fill="#3965ff"
+      strokeWidth="0"
       viewBox="0 0 24 24"
       focusable="false"
       className="chakra-icon css-1xv6ini"
-      height="1em"
-      width="1em"
+      height={height}
+      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path fill="none" d="M0 0h24v24H0z"></path>

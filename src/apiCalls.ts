@@ -38,7 +38,7 @@ export const signInData = async (
 // view profile
 export const viewProfileData = async () => {
   try {
-    const res = await userRequest.get(`/Viewprofile/${userId}`);
+    const res = await userRequest.get(`/Viewprofile`);
     console.log("Response Status:", res.status);
     return res.data;
   } catch (error) {

@@ -9,8 +9,8 @@ const userId = user?.userInfo?.[0]?.id;
 
 // signup
 export const signUpData = async (data: { email: string; password: string }) => {
-  const newData = { ...data, state: "active" };
-  // console.log('first check', data);
+  const newData = { ...data, state: "active", isVerified: false };
+  // console.log('first check', newData);
   try {
     const res = await publicRequest.post("/signup", newData);
     console.log("Response Status:", res.status);

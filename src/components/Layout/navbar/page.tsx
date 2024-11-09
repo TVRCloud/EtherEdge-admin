@@ -13,7 +13,7 @@ const Navbar = () => {
     return pathnames.map((value, index) => {
       const to = `/${pathnames.slice(0, index + 1).join("/")}`;
       return (
-        <BreadcrumbRoot>
+        <BreadcrumbRoot key={index}>
           <BreadcrumbLink href={to}>{value}</BreadcrumbLink>
         </BreadcrumbRoot>
       );

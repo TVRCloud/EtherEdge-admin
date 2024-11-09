@@ -8,8 +8,6 @@ import useUserDetails from "../../utils/useUserDetails";
 const Profile = () => {
   const { data } = useUserDetails();
 
-  console.log(data);
-
   const defaultImage =
     data?.user?.gender === "male"
       ? "/assets/placeholder/userMale1.png"

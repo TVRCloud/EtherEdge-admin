@@ -9,7 +9,7 @@ export default function Root() {
         <SideBar />
       </div>
       <div className="w-full xl:w-[82%] max-h-screen overflow-auto hide-scrollbar">
-        <div className="fixed w-full xl:w-[82%] pt-4 px-2 xl:px-0 xl:pr-4">
+        <div className="fixed z-50 w-full xl:w-[82%] pt-4 px-2 xl:px-0 xl:pr-4">
           <Navbar />
         </div>
 

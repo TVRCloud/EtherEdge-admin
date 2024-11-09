@@ -3,6 +3,7 @@ import Root from "./root/root";
 import Dashboard from "./pages/Dashboard/page";
 import { useEffect } from "react";
 import "./App.css";
+import Profile from "./pages/profile/page";
 
 function App() {
   useEffect(() => {
@@ -21,10 +22,10 @@ function App() {
           path: "/",
           element: <Dashboard />,
         },
-        // {
-        //   path: "/profile",
-        //   element: <Profile />,
-        // },
+        {
+          path: "/profile",
+          element: <Profile />,
+        },
         // {
         //   path: "/profile/editProfile",
         //   element: <EditProfile />,

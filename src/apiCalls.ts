@@ -67,7 +67,7 @@ export const editProfile = async (data: {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const updateProfileImage = async (formData: any) => {
   try {
-    const res = await userRequest.put(`/update-profile-image/`, formData);
+    const res = await userRequest.put(`/update-profile-image`, formData);
     console.log("Response Status:", res.status);
     return res.data;
   } catch (error) {

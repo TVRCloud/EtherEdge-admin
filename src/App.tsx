@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard/page";
 import { useEffect } from "react";
 import "./App.css";
 import Profile from "./pages/profile/page";
+import NotFoundPage from "./pages/status/NotFoundPage";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,10 @@ function App() {
         {
           path: "/users/list",
           element: "<jdkifjksdhfsho />",
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
         },
       ],
     },

@@ -4,6 +4,8 @@ import Dashboard from "./pages/Dashboard/page";
 import { useEffect } from "react";
 import "./App.css";
 import Profile from "./pages/profile/page";
+import NotFoundPage from "./pages/status/NotFoundPage";
+import EditProfile from "./pages/profile/editProfile/page";
 
 function App() {
   useEffect(() => {
@@ -26,10 +28,10 @@ function App() {
           path: "/profile",
           element: <Profile />,
         },
-        // {
-        //   path: "/profile/editProfile",
-        //   element: <EditProfile />,
-        // },
+        {
+          path: "/profile/editProfile",
+          element: <EditProfile />,
+        },
         {
           path: "/analytics/overview",
           element: "<Dashboard />",
@@ -37,6 +39,10 @@ function App() {
         {
           path: "/users/list",
           element: "<jdkifjksdhfsho />",
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
         },
       ],
     },

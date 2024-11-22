@@ -2,14 +2,14 @@
 
 import { Form } from "@components/ui/form";
 import { useMutation } from "@tanstack/react-query";
+import useUserDetails from "@utils/useUserDetails";
 import { updateProfileImage } from "apiCalls";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 const EditProfileImage = () => {
-  const data = {
-    user: { gender: "male", profileImage: "" },
-  };
+  const { data } = useUserDetails();
+
   const form = useForm({
     resolver: undefined,
     defaultValues: {

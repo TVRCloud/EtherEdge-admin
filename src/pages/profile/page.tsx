@@ -1,4 +1,5 @@
 import VerifyIcon from "../../assets/icons/verifyIcon";
+import { ActionButton } from "../../components/ui/actionButton";
 import {
   ClipboardIconButton,
   ClipboardRoot,
@@ -30,7 +31,7 @@ const Profile = () => {
         </div>
       ) : (
         <div className="mt-[80px] flex flex-col items-center gap-2">
-          <h2 className="text-5xl font-semibold flex items-center gap-2 text-text-primary dark:text-dark-text-primary">
+          <h2 className="text-5xl font-semibold capitalize flex items-center gap-2 text-text-primary dark:text-dark-text-primary">
             {data?.user?.fullName ?? data?.user?.username}
             {data?.user?.isVerified && (
               <span className="text-green-500">
@@ -48,6 +49,8 @@ const Profile = () => {
           </ClipboardRoot>
 
           <p>{data?.user?.email}</p>
+
+          <ActionButton action="edit" defaultText />
         </div>
       )}
     </div>

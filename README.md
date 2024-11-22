@@ -17,7 +17,7 @@ A modern admin dashboard built with React, TypeScript, and Vite.
 
 ## 📦 Prerequisites
 
-- Node.js (v16 or higher)
+- Node.js (vv22.11.0)
 - npm or yarn
 
 ## 🛠️ Installation

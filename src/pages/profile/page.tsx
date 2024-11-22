@@ -3,10 +3,11 @@ import {
   ClipboardIconButton,
   ClipboardRoot,
 } from "../../components/ui/clipboard";
+import { Skeleton } from "../../components/ui/skeleton";
 import useUserDetails from "../../utils/useUserDetails";
 
 const Profile = () => {
-  const { data } = useUserDetails();
+  const { data, isLoading } = useUserDetails();
 
   const defaultImage =
     data?.user?.gender === "male"
@@ -21,26 +22,34 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="mt-[80px] flex flex-col items-center gap-2">
-        <h2 className="text-5xl font-semibold flex items-center gap-2 text-text-primary dark:text-dark-text-primary">
-          {data?.user?.fullName ?? data?.user?.username}
-          {data?.user?.isVerified && (
-            <span className="text-green-500">
-              <VerifyIcon height="30px" width="30px" />
-            </span>
-          )}
-        </h2>
+      {isLoading ? (
+        <div className="mt-[80px] flex flex-col items-center gap-2">
+          <Skeleton height="30px" width="260px" />
+          <Skeleton height="20px" width="340px" />{" "}
+          <Skeleton height="20px" width="280px" />
+        </div>
+      ) : (
+        <div className="mt-[80px] flex flex-col items-center gap-2">
+          <h2 className="text-5xl font-semibold flex items-center gap-2 text-text-primary dark:text-dark-text-primary">
+            {data?.user?.fullName ?? data?.user?.username}
+            {data?.user?.isVerified && (
+              <span className="text-green-500">
+                <VerifyIcon height="30px" width="30px" />
+              </span>
+            )}
+          </h2>
 
-        <ClipboardRoot
-          value={data?.user?._id}
-          className="flex items-center text-text-secondary dark:text-dark-text-secondary"
-        >
-          <p>{data?.user?._id}</p>
-          <ClipboardIconButton />
-        </ClipboardRoot>
+          <ClipboardRoot
+            value={data?.user?._id}
+            className="flex items-center text-text-secondary dark:text-dark-text-secondary"
+          >
+            <p>{data?.user?._id}</p>
+            <ClipboardIconButton />
+          </ClipboardRoot>
 
-        <p>{data?.user?.email}</p>
-      </div>
+          <p>{data?.user?.email}</p>
+        </div>
+      )}
     </div>
   );
 };

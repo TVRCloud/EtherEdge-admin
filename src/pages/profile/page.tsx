@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import VerifyIcon from "../../assets/icons/verifyIcon";
 import { ActionButton } from "../../components/ui/actionButton";
 import {
@@ -9,6 +10,10 @@ import useUserDetails from "../../utils/useUserDetails";
 
 const Profile = () => {
   const { data, isLoading } = useUserDetails();
+  const navigate = useNavigate();
+  const onEditProfile = () => {
+    navigate("/profile/editProfile");
+  };
 
   const defaultImage =
     data?.user?.gender === "male"
@@ -50,7 +55,12 @@ const Profile = () => {
 
           <p>{data?.user?.email}</p>
 
-          <ActionButton action="edit" defaultText />
+          <ActionButton
+            action="edit"
+            defaultText
+            className="mt-2"
+            onClick={onEditProfile}
+          />
         </div>
       )}
     </div>

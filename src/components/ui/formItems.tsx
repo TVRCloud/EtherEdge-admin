@@ -106,48 +106,54 @@ export function GenderSelectField<F extends FieldValues>(props: {
     <FormField
       control={props.control}
       name={props.name}
-      render={({ field }) => (
-        <FormItem className={props.formItemClassName}>
-          <label className="flex flex-col gap-2">
-            <FormLabel className="text-[12px] text-text-primary dark:text-dark-text-primary font-bold pl-3">
-              {props.label}
-              {props.required && (
-                <span className="ml-1 text-destructive">*</span>
-              )}
-            </FormLabel>
-            <FormControl>
-              <SelectRoot
-                collection={genders}
-                size="sm"
-                value={field.value || []}
-                onValueChange={(value) => field.onChange(value)}
-                className={`border outline-none ring-offset-transparent focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:transparent focus-visible:ring-offset-0 h-12 px-3 rounded-[16px]
-                  ${props.className}
-                `}
-              >
-                <SelectTrigger className="h-full flex items-center">
-                  <SelectValueText
-                    className="text-sm"
-                    placeholder="Select Gender"
-                  />
-                </SelectTrigger>
-                <SelectContent className="p-2 flex flex-col gap-2 bg-primary-bg dark:bg-dark-primary-bg rounded-[16px]">
-                  {genders.items.map((gender) => (
-                    <SelectItem
-                      item={gender}
-                      key={gender.value}
-                      className="p-2 rounded-[16px] hover:bg-main-bg dark:hover:bg-dark-main-bg"
-                    >
-                      {gender.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </SelectRoot>
-            </FormControl>
-            <FormMessage />
-          </label>
-        </FormItem>
-      )}
+      render={({ field }) => {
+        console.log("Selected value:", field.value); // Debugging log
+
+        return (
+          <FormItem className={props.formItemClassName}>
+            <label className="flex flex-col gap-2">
+              <FormLabel className="text-[12px] text-text-primary dark:text-dark-text-primary font-bold pl-3">
+                {props.label}
+                {props.required && (
+                  <span className="ml-1 text-destructive">*</span>
+                )}
+              </FormLabel>
+              <FormControl>
+                <SelectRoot
+                  collection={genders}
+                  size="sm"
+                  value={field.value ? [field.value] : []} // Ensure value is an array
+                  onValueChange={(details) => {
+                    // Only extract the 'value' from the selected item
+                    const selectedValue = details.value[0]; // This is now just a string, e.g., 'male'
+                    field.onChange(selectedValue); // Update the field with the selected value
+                  }}
+                  className={`border outline-none ring-offset-transparent focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:transparent focus-visible:ring-offset-0 h-12 px-3 rounded-[16px] ${props.className}`}
+                >
+                  <SelectTrigger className="h-full flex items-center">
+                    <SelectValueText
+                      className="text-sm"
+                      placeholder="Select Gender"
+                    />
+                  </SelectTrigger>
+                  <SelectContent className="p-2 flex flex-col gap-2 bg-primary-bg dark:bg-dark-primary-bg rounded-[16px]">
+                    {genders.items.map((gender) => (
+                      <SelectItem
+                        item={gender}
+                        key={gender.value}
+                        className="p-2 rounded-[16px] hover:bg-main-bg dark:hover:bg-dark-main-bg"
+                      >
+                        {gender.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </SelectRoot>
+              </FormControl>
+              <FormMessage />
+            </label>
+          </FormItem>
+        );
+      }}
     />
   );
 }

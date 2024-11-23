@@ -33,7 +33,7 @@ export const profileEditSchema = z.object({
   email: z.string().email("Invalid email"),
   username: z.string().min(1, "Username is required"),
   fullName: z.string().min(1, "Full name is required"),
-  gender: z.object({}).optional(),
+  gender: z.string().min(1, "Gender is required"),
   phone: z.string().min(1, "Phone number is required"),
 });
 

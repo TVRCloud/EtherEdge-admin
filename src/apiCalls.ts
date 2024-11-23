@@ -48,14 +48,15 @@ export const viewProfileData = async () => {
 
 // edit profile
 export const editProfile = async (data: {
+  email: string;
   username: string;
-  firstName: string;
-  lastName: string;
-  description?: string | undefined;
+  fullName: string;
+  gender: string;
+  phone: string;
 }) => {
   console.log("apiii data", data);
   try {
-    const res = await userRequest.put(`/editprofile/${userId}`, data);
+    const res = await userRequest.put(`/editprofile`, data);
     console.log("Response Status:", res.status);
     return res.data;
   } catch (error) {

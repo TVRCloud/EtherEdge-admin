@@ -2,11 +2,6 @@ import { Dispatch, UnknownAction } from "@reduxjs/toolkit";
 import { loginUser } from "./redux/userRedux";
 import { publicRequest, userRequest } from "./requestMethods";
 
-const storedData = localStorage.getItem("persist:alpha96");
-const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
-const userId = user?.userInfo?.[0]?.id;
-// const userType = user?.userInfo?.[0]?.type;
-
 // signup
 export const signUpData = async (data: { email: string; password: string }) => {
   const newData = { ...data, state: "active", isVerified: false };

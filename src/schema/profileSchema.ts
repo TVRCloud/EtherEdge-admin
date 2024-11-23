@@ -30,10 +30,11 @@ export const profileImageSchema = z.object({
 
 // Schema for profile edit form
 export const profileEditSchema = z.object({
+  email: z.string().email("Invalid email"),
   username: z.string().min(1, "Username is required"),
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  about: z.string().optional(),
+  fullName: z.string().min(1, "Full name is required"),
+  gender: z.object({}).optional(),
+  phone: z.string().min(1, "Phone number is required"),
 });
 
 export type TProfileEditSchema = z.infer<typeof profileEditSchema>;

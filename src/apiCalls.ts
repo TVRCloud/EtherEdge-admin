@@ -49,7 +49,6 @@ export const editProfile = async (data: {
   gender: string;
   phone: string;
 }) => {
-  console.log("apiii data", data);
   try {
     const res = await userRequest.put(`/editprofile`, data);
     console.log("Response Status:", res.status);

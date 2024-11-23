@@ -1,12 +1,17 @@
 type Props = {
   height?: string;
   width?: string;
+  color?: string;
 };
-const VerifyIcon = ({ height = "24px", width = "24px" }: Props) => {
+const VerifyIcon = ({
+  height = "24px",
+  width = "24px",
+  color = "#3965ff",
+}: Props) => {
   return (
     <svg
-      stroke="#3965ff"
-      fill="#3965ff"
+      stroke={color}
+      fill={color}
       strokeWidth="0"
       viewBox="0 0 24 24"
       focusable="false"

@@ -1,15 +1,38 @@
 "use client";
 
+import VerifyIcon from "@assets/icons/verifyIcon";
 import { Form } from "@components/ui/form";
+import LoadingSpinner from "@components/ui/loadingSpinner";
 import { useMutation } from "@tanstack/react-query";
-import useUserDetails from "@utils/useUserDetails";
+
 import { updateProfileImage } from "apiCalls";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 
-const EditProfileImage = () => {
-  const { data } = useUserDetails();
+interface data {
+  user: {
+    _id: string;
+    fullName: string;
+    profileImage: string;
+    username: string;
+    gender: string;
+    email: string;
+    role: string;
+    isVerified: boolean;
+    dob: string;
+    type: string;
+    phone: string;
+    image: string;
+    lastLogin: string;
+    state: string;
+  };
+}
 
+type Props = {
+  data: data | undefined;
+};
+
+const EditProfileImage = ({ data }: Props) => {
   const form = useForm({
     resolver: undefined,
     defaultValues: {
@@ -68,7 +91,7 @@ const EditProfileImage = () => {
   };
 
   return (
-    <div>
+    <div className="bg-primary-bg dark:bg-dark-primary-bg p-5 rounded-[20px]">
       <Form {...form}>
         <form>
           <div className="w-full h-[100px] sm:h-[120px] md:h-[140px] lg:h-[160px] bg-[url('/assets/profile/profileBanner.webp')] bg-cover bg-no-repeat rounded-[16px] relative">
@@ -81,11 +104,7 @@ const EditProfileImage = () => {
                 alt="profile"
                 className="h-full w-full rounded-full object-cover"
               />
-              {isUploading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
-                  <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-white"></div>
-                </div>
-              )}
+              {isUploading && <LoadingSpinner />}
               <input
                 type="file"
                 ref={fileInputRef}
@@ -97,6 +116,18 @@ const EditProfileImage = () => {
           </div>
         </form>
       </Form>
+      <div className="pt-[74px] flex justify-center">
+        <h1 className="text-2xl font-bold flex items-center">
+          {data?.user?.username}{" "}
+          <span>
+            <VerifyIcon
+              height="30px"
+              width="30px"
+              color={data?.user?.isVerified ? "#3965ff" : "#89A8B2"}
+            />
+          </span>
+        </h1>
+      </div>
     </div>
   );
 };

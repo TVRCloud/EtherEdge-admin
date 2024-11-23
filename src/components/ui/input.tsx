@@ -13,7 +13,7 @@ const Input = React.forwardRef<
     <div className="relative flex items-center flex-grow">
       <input
         type={passwordMode ? (showPassword ? "text" : "password") : type}
-        className={`flex h-12 w-full rounded-md px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 ${
+        className={`bg-transparent flex h-12 w-full rounded-[16px] px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 ${
           className || ""
         } ${passwordMode ? "pr-9" : ""}`}
         ref={ref}

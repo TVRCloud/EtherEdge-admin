@@ -107,8 +107,6 @@ export function GenderSelectField<F extends FieldValues>(props: {
       control={props.control}
       name={props.name}
       render={({ field }) => {
-        console.log("Selected value:", field.value); // Debugging log
-
         return (
           <FormItem className={props.formItemClassName}>
             <label className="flex flex-col gap-2">

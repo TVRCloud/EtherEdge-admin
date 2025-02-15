@@ -69,3 +69,14 @@ export const updateProfileImage = async (formData: any) => {
     console.log(error);
   }
 };
+
+// fetch db status
+export const fetchDbStatus = async () => {
+  try {
+    const res = await userRequest.get(`/dbStats`);
+    console.log("Response Status:", res.status);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

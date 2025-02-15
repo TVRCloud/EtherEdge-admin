@@ -106,8 +106,8 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
         className={`flex items-center p-3 cursor-pointer rounded-[12px]
           ${
             isActive
-              ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"
-              : "text-text-primary dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-primary-bg"
+              ? "bg-primary-color text-text-primary"
+              : "text-text-primary hover:bg-main-bg"
           }
           ${isNested ? "pl-8" : "pl-4"}`}
         onClick={hasSubItems ? handleClick : undefined} // Handle click only for items with sub-items
@@ -124,9 +124,7 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
             onClick={() => setActivePath(item.path)} // Update active path on click
             className={`flex items-center w-full
               ${
-                isActive
-                  ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"
-                  : "text-text-primary dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-dark-primary-bg"
+                isActive ? "bg-primary-color text-white " : "text-text-primary "
               }`}
           >
             <item.icon className="mr-3" />
@@ -145,8 +143,8 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
                 className={`flex items-center p-3 rounded-[12px]  w-full
                   ${
                     activePath === subItem.path
-                      ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"
-                      : "text-text-primary dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-dark-primary-bg"
+                      ? "bg-primary-color text-text-primary dark:bg-primary-color"
+                      : "text-text-primary hover:bg-main-bg"
                   }`}
               >
                 <subItem.icon className="mr-3" />
@@ -179,7 +177,7 @@ const NestedSidebar: React.FC<NestedSidebarProps> = ({
   }, [location.pathname]);
 
   return (
-    <nav className="h-full pb-10 overflow-x-hidden overflow-y-auto bg-primary-bg dark:bg-dark-primary-bg">
+    <nav className="h-full pb-10 overflow-x-hidden overflow-y-auto bg-primary-bg">
       <div className="flex flex-col mt-4 space-y-1">
         {sidebarItems.map((item) => (
           <NestedSidebarItem

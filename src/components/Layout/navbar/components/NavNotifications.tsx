@@ -59,11 +59,11 @@ const NavNotifications = () => {
   return (
     <MenuRoot>
       <MenuTrigger asChild className="cursor-pointer">
-        <IoNotificationsOutline className="text-text-secondary dark:text-dark-text-primary" />
+        <IoNotificationsOutline className="text-text-primary" />
       </MenuTrigger>
-      <MenuContent className="max-h-[300px] max-w-[360px] mt-6 overflow-y-auto hide-scrollbar rounded-[16px] bg-white dark:bg-gradient-to-b from-dark-primary-bg to-dark-main-bg">
+      <MenuContent className="max-h-[300px] max-w-[360px] mt-6 overflow-y-auto hide-scrollbar rounded-[16px] bg-gradient-to-b from-primary-bg to-main-bg">
         <div>
-          <h3 className="text-text-primary dark:text-dark-text-primary text-lg font-semibold p-3 pt-6 px-4">
+          <h3 className="text-text-primary text-lg font-semibold p-3 pt-6 px-4">
             Notifications
           </h3>
         </div>
@@ -77,10 +77,8 @@ const NavNotifications = () => {
               </div>
 
               <div className="w-[80%]">
-                <h3 className="text-text-primary dark:text-dark-text-primary">
-                  {notification.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-dark-text-secondary overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
+                <h3 className="text-text-primary">{notification.title}</h3>
+                <p className="text-sm text-text-secondary overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                   {notification.content}
                 </p>
               </div>

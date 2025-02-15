@@ -107,7 +107,7 @@ const NestedSidebarItem: React.FC<NestedSidebarItemProps> = ({
           ${
             isActive
               ? "bg-primary-color text-white dark:bg-dark-primary-color dark:text-dark-text"
-              : "text-text-primary dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-dark-primary-bg"
+              : "text-text-primary dark:text-dark-text-primary hover:bg-gray-100 dark:hover:bg-primary-bg"
           }
           ${isNested ? "pl-8" : "pl-4"}`}
         onClick={hasSubItems ? handleClick : undefined} // Handle click only for items with sub-items

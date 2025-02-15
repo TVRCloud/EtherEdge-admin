@@ -8,7 +8,7 @@ const NavSearch = ({ onSearch }: Props) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="bg-main-bg dark:bg-dark-main-bg px-[20px] py-[8px] rounded-full flex items-center gap-2">
+    <div className="bg-main-bg px-[20px] py-[8px] rounded-full flex items-center gap-2">
       <IoSearchOutline />
       <input
         type="text"

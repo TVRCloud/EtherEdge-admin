@@ -5,24 +5,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Light theme colors
-        "main-bg": "#ebf0f9",
-        "primary-bg": "#fff",
-        "text-primary": "#1b254b",
-        "text-secondary": "#abb4cb",
-        "text-dark": "#000000",
-        "primary-color": "#422afb",
-        "primary-color-dark": "#11047a",
-        danger: "#ff0000",
-
-        // Dark theme colors
-        "dark-main-bg": "#070f2e",
-        "dark-primary-bg": "#111c44",
-        "dark-text-primary": "#fff",
-        "dark-text-secondary": "#c2c8d1",
-        "dark-primary-color": "#8a71fd",
-        "dark-primary-color-dark": "#422afb",
-        "dark-danger": "#ff5252",
+        "main-bg": "var(--main-bg)",
+        "primary-bg": "var(--primary-bg)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "text-dark": "var(--text-dark)",
+        "primary-color": "var(--primary-color)",
+        "primary-color-dark": "var(--primary-color-dark)",
+        danger: "var(--danger)",
       },
     },
   },

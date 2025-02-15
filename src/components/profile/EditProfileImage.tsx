@@ -91,12 +91,12 @@ const EditProfileImage = ({ data }: Props) => {
   };
 
   return (
-    <div className="bg-primary-bg dark:bg-dark-primary-bg p-5 rounded-[20px]">
+    <div className="bg-primary-bg p-5 rounded-[20px]">
       <Form {...form}>
         <form>
           <div className="w-full h-[100px] sm:h-[120px] md:h-[140px] lg:h-[160px] bg-[url('/assets/profile/profileBanner.webp')] bg-cover bg-no-repeat rounded-[16px] relative">
             <div
-              className="bg-main-bg dark:bg-dark-main-bg p-2 h-[140px] w-[140px] rounded-full overflow-hidden absolute bottom-[-70px] left-1/2 transform -translate-x-1/2 cursor-pointer"
+              className="bg-main-bg p-2 h-[140px] w-[140px] rounded-full overflow-hidden absolute bottom-[-70px] left-1/2 transform -translate-x-1/2 cursor-pointer"
               onClick={handleImageClick}
             >
               <img

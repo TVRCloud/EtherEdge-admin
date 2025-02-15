@@ -36,12 +36,12 @@ const Navbar = () => {
             <BreadcrumbLink href="/">Home</BreadcrumbLink>
             {generateBreadcrumbs()}
           </BreadcrumbRoot>
-          <Heading className="text-text-primary dark:text-dark-text-primary text-[28px] font-bold">
+          <Heading className="text-text-primary text-[28px] font-bold">
             {getPageTitle()}
           </Heading>
         </div>
 
-        <div className="flex gap-3 items-center bg-primary-bg dark:bg-dark-primary-bg p-[8px] rounded-full">
+        <div className="flex gap-3 items-center bg-primary-bg p-[8px] rounded-full">
           <NavSearch onSearch={handleSearch} />
           <NavNotifications />
           <NavThemeToggler />

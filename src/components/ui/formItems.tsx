@@ -58,7 +58,7 @@ export function InputField<F extends FieldValues>(props: {
           <label className="flex flex-col gap-2">
             <FieldLabel
               required={props.required}
-              className="text-[12px] text-text-primary dark:text-dark-text-primary font-bold pl-3"
+              className="text-[12px] text-text-primary font-bold pl-3"
             >
               {props.label}
             </FieldLabel>
@@ -110,7 +110,7 @@ export function GenderSelectField<F extends FieldValues>(props: {
         return (
           <FormItem className={props.formItemClassName}>
             <label className="flex flex-col gap-2">
-              <FormLabel className="text-[12px] text-text-primary dark:text-dark-text-primary font-bold pl-3">
+              <FormLabel className="text-[12px] text-text-primary font-bold pl-3">
                 {props.label}
                 {props.required && (
                   <span className="ml-1 text-destructive">*</span>
@@ -134,12 +134,12 @@ export function GenderSelectField<F extends FieldValues>(props: {
                       placeholder="Select Gender"
                     />
                   </SelectTrigger>
-                  <SelectContent className="p-2 flex flex-col gap-2 bg-primary-bg dark:bg-dark-primary-bg rounded-[16px]">
+                  <SelectContent className="p-2 flex flex-col gap-2 bg-primary-bg rounded-[16px]">
                     {genders.items.map((gender) => (
                       <SelectItem
                         item={gender}
                         key={gender.value}
-                        className="p-2 rounded-[16px] hover:bg-main-bg dark:hover:bg-dark-main-bg"
+                        className="p-2 rounded-[16px] hover:bg-main-bg"
                       >
                         {gender.label}
                       </SelectItem>
@@ -173,7 +173,7 @@ export function PhoneNumberField<F extends FieldValues>(props: {
       render={({ field }) => (
         <FormItem className={props.formItemClassName}>
           <label className="flex flex-col gap-2">
-            <FormLabel className="text-[12px] text-text-primary dark:text-dark-text-primary font-bold pl-3">
+            <FormLabel className="text-[12px] text-text-primary font-bold pl-3">
               {props.label}
               {props.required && (
                 <span className="ml-1 text-destructive">*</span>
@@ -187,7 +187,7 @@ export function PhoneNumberField<F extends FieldValues>(props: {
                 placeholder={props.placeholder || "Enter phone number"}
                 defaultCountry="IN"
                 international
-                className={`w-full border rounded-[16px] h-12 px-3 text-sm bg-transparent text-text-primary dark:text-dark-text-primary placeholder-text-secondary dark:placeholder-dark-text-secondary  ${props.className}`}
+                className={`w-full border rounded-[16px] h-12 px-3 text-sm bg-transparent text-text-primary placeholder-text-secondary ${props.className}`}
               />
             </FormControl>
             <FormMessage />

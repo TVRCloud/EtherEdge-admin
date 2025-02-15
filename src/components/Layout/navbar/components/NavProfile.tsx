@@ -29,7 +29,7 @@ const NavProfile = () => {
           />
         </div>
       </MenuTrigger>
-      <MenuContent className="w-60 mt-4 rounded-[16px] bg-white dark:bg-gradient-to-b from-dark-primary-bg to-dark-main-bg">
+      <MenuContent className="w-60 mt-4 rounded-[16px] bg-gradient-to-b from-primary-bg to-main-bg">
         <div className="p-4 border-b-2">
           <h3>Hey Sara</h3>
         </div>

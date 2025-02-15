@@ -17,3 +17,26 @@ body {
   margin: 0;
   padding: 0;
 }
+
+
+:root {
+  --main-bg: #ebf0f9;
+  --primary-bg: #fff;
+  --text-primary: #1b254b;
+  --text-secondary: #abb4cb;
+  --text-dark: #000000;
+  --primary-color: #422afb;
+  --primary-color-dark: #11047a;
+  --danger: #ff0000;
+}
+
+.dark {
+  --main-bg: #070f2e;
+  --primary-bg: #111c44;
+  --text-primary: #fff;
+  --text-secondary: #c2c8d1;
+  --text-dark: #000000;
+  --primary-color: #8a71fd;
+  --primary-color-dark: #422afb;
+  --danger: #ff5252;
+}

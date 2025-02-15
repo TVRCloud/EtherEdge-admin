@@ -58,10 +58,8 @@ const EditProfileBasicDetails = ({ data }: Props) => {
   };
 
   return (
-    <div className="bg-primary-bg dark:bg-dark-primary-bg p-5 rounded-[20px] flex flex-col gap-2">
-      <h2 className="text-2xl font-bold text-text-primary dark:text-dark-text-primary">
-        Account Settings
-      </h2>
+    <div className="bg-primary-bg p-5 rounded-[20px] flex flex-col gap-2">
+      <h2 className="text-2xl font-bold text-text-primary">Account Settings</h2>
       <p>Here you can change user account information</p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onsubmit)}>

@@ -1,8 +1,9 @@
 import InfoCardSmall from "../../components/dashboard/InfoCardSmall";
+import DashDbStatus from "./DashDbStatus";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <div className="grid grid-cols-5 gap-4">
         {Array.from({ length: 5 }).map((_, index) => (
           <InfoCardSmall
@@ -17,8 +18,9 @@ const Dashboard = () => {
         ))}
       </div>
 
-      
-      
+      <div>
+        <DashDbStatus />
+      </div>
     </div>
   );
 };
